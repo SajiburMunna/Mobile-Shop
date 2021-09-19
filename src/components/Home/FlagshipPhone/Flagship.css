@@ -1,0 +1,52 @@
+h1 {
+  margin-top: 100px;
+}
+
+.display {
+  display: flex;
+  margin: 50px;
+}
+/* .flagship1-img {
+  height: 400px;
+  width: 550px;
+} */
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 100;
+  background-color: #eec2f0;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+}
+
+.container:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+.text1 {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}

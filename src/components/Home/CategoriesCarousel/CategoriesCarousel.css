@@ -1,0 +1,59 @@
+hr {
+  width: 100px;
+  margin-left: 0px;
+  border: 4px solid black;
+  background-color: black;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.phone {
+  display: flex;
+}
+
+.container1 {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  margin-bottom: 100px;
+}
+
+.image1 {
+  opacity: 1;
+  display: block;
+  width: 300px;
+  height: 100px;
+  margin-right: 10px;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle1 {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+
+  top: 100px;
+  left: 150px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container1:hover .image1 {
+  opacity: 0.3;
+  background-color: #eec2f0;
+}
+
+.container1:hover .middle1 {
+  opacity: 1;
+}
+
+.text1 {
+  background-color: #d6e0ed;
+  color: black;
+  font-size: 16px;
+  padding: 16px 32px;
+  cursor: pointer;
+}

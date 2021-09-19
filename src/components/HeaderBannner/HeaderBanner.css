@@ -1,0 +1,25 @@
+.div-flex {
+  display: flex;
+  height: 550px;
+  margin-bottom: 30px;
+}
+
+.divlft-img {
+  height: 600px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+.div-img {
+  margin-left: 650px;
+  height: 600px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+.button-div {
+  padding: 100px;
+  font-size: 25px;
+}
