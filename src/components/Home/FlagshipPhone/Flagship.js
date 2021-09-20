@@ -6,7 +6,12 @@ import flagship2 from "../../../Images/flagship2.png";
 const Flagship = () => {
   return (
     <div>
-      <h1>Flagship</h1>
+      <h1 style={{ textAlign: "center" }}>FLAGSHIP</h1>
+      <h3>
+        {" "}
+        <hr style={{ marginLeft: "550px" }} />
+      </h3>
+
       <div className="display">
         <div class="container">
           <img src={flagship1} alt="Avatar" class="image" />

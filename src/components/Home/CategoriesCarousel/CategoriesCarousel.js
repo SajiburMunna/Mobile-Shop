@@ -4,27 +4,27 @@ import samsung from "../../../Images/samsung.png";
 import xiaomi from "../../../Images/xiaomi.png";
 import iphone from "../../../Images/iphone.png";
 import google from "../../../Images/google.png";
+import { useHistory } from "react-router-dom";
 
 const CategoriesCarousel = () => {
   const phone = [
-    {
-      img: samsung,
-    },
-    {
-      img: xiaomi,
-    },
-    {
-      img: iphone,
-    },
-    {
-      img: google,
-    },
+    { id: "/samsung", img: samsung },
+    { id: "/xiaomi", img: xiaomi },
+    { id: "/apple", img: iphone },
+    { id: "/google", img: google },
   ];
+
+  let history = useHistory();
+
+  function Click(click) {
+    history.push(click);
+  }
+
   return (
     <div>
       <div>
         <h1>
-          Categories <hr />
+          BRANDS <hr className="h1" />
         </h1>
         <div className="phone">
           {phone.map((p) => (
@@ -32,7 +32,6 @@ const CategoriesCarousel = () => {
               <div className="container1">
                 <img
                   style={{
-                    borderRadius: "20px",
                     height: "200px",
                   }}
                   className="image1"
@@ -40,7 +39,14 @@ const CategoriesCarousel = () => {
                   alt=""
                 />
                 <div class="middle1">
-                  <div className="text1">John Doe</div>
+                  <div
+                    className="text1"
+                    onClick={() => {
+                      Click(p.id);
+                    }}
+                  >
+                    SHOP
+                  </div>
                 </div>
               </div>
             </div>

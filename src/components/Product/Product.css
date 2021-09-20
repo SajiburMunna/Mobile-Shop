@@ -1,0 +1,39 @@
+.card-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 296px;
+  height: 350px;
+  margin: 3px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 20px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.img {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+}

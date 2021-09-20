@@ -1,0 +1,46 @@
+.flex-div {
+  display: flex;
+}
+.filter-div {
+  width: 600px;
+  margin-right: 50px;
+}
+.shopcard-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shopcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 180px;
+  height: 350px;
+  margin: 3px;
+  text-align: center;
+  font-family: arial;
+}
+
+.shopprice {
+  color: grey;
+  font-size: 20px;
+}
+
+.shopcard button {
+  border: none;
+  outline: 0;
+
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+.shopcard button:hover {
+  opacity: 0.7;
+}
+
+.shopimg {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+}

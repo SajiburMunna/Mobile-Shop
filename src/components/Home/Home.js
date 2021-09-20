@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import HeaderBanner from "../HeaderBannner/HeaderBanner";
 
 import { Product } from "../Product/Product";
@@ -12,6 +13,7 @@ export const Home = () => {
       <CategoriesCarousel></CategoriesCarousel>
       <Flagship></Flagship>
       <Product></Product>
+      <Footer></Footer>
     </div>
   );
 };
