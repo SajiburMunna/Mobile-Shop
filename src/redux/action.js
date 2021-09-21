@@ -4,3 +4,16 @@ export const productList = (productList) => {
     payload: productList,
   };
 };
+export const detailsList = (detailsList) => {
+  return {
+    type: "DETAILS_LIST",
+    payload: detailsList,
+  };
+};
+
+export const addToCart = (addtocart) => {
+  return {
+    type: "ADD_TO_CART",
+    payload: addtocart,
+  };
+};

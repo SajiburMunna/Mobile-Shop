@@ -6,8 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import BlackSaleDay from "../../../Images/BlackSaleDay.png";
 import "./Shop.css";
 import Footer from "../../../components/Footer/Footer";
+import { useHistory } from "react-router";
 
 const Shop = () => {
+  let history = useHistory();
+
+  function handleClick(key) {
+    history.push(`/productshow/${key}`);
+  }
   const filterList = [
     {
       id: 11,
@@ -126,18 +132,22 @@ const Shop = () => {
             {filteredList.map((post) => (
               <div>
                 <div className="shopcard">
-                  <div>
-                    <img
-                      className="shopimg"
-                      src={post.ProductImg}
-                      alt="Denim Jeans"
-                    />
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleClick(post.key)}
+                  >
+                    <div>
+                      <img
+                        className="shopimg"
+                        src={post.ProductImg}
+                        alt="Denim Jeans"
+                      />
+                    </div>
+
+                    <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
+                    <p>Model-{post.ProductModel}</p>
+                    <p className="shopprice">{post.ProductPrice} TK</p>
                   </div>
-
-                  <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
-                  <p>Model-{post.ProductModel}</p>
-                  <p className="shopprice">{post.ProductPrice} TK</p>
-
                   <p>
                     <button>Add to Cart</button>
                   </p>

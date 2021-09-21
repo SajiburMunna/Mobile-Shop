@@ -3,8 +3,14 @@ import { db } from "../../../../config/Config";
 import { productList } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../Footer/Footer";
+import { useHistory } from "react-router";
 
 const Xiaomi = () => {
+  let history = useHistory();
+
+  function handleClick(key) {
+    history.push(`/productshow/${key}`);
+  }
   const dispatch = useDispatch();
   const reduxStore = useSelector((state) => state);
   console.log(reduxStore);
@@ -33,18 +39,22 @@ const Xiaomi = () => {
             pd.map((post) => (
               <div>
                 <div className="card">
-                  <div>
-                    <img
-                      className="img"
-                      src={post.ProductImg}
-                      alt="Denim Jeans"
-                    />
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleClick(post.key)}
+                  >
+                    <div>
+                      <img
+                        className="img"
+                        src={post.ProductImg}
+                        alt="Denim Jeans"
+                      />
+                    </div>
+
+                    <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
+                    <p>Model-{post.ProductModel}</p>
+                    <p className="price">{post.ProductPrice} TK</p>
                   </div>
-
-                  <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
-                  <p>Model-{post.ProductModel}</p>
-                  <p className="price">{post.ProductPrice} TK</p>
-
                   <p>
                     <button>Add to Cart</button>
                   </p>

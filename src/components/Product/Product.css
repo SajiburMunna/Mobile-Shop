@@ -1,6 +1,7 @@
 .card-div {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -9,6 +10,12 @@
   margin: 3px;
   text-align: center;
   font-family: arial;
+  background-color: rgb(236, 236, 224);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .price {
