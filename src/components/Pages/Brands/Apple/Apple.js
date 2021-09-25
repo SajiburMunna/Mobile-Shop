@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { db } from "../../../../config/Config";
-import { productList } from "../../../../redux/action";
+import { productList, addToCart } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../Footer/Footer";
 import { useHistory } from "react-router";
+import "../Apple/Apple.css";
 
 const Apple = () => {
   let history = useHistory();
@@ -28,24 +29,24 @@ const Apple = () => {
     });
     return () => subscriber();
   }, []);
-  const pd = reduxStore.List.filter((p) => p.ProductName === "apple");
+  const pd = reduxStore.List.filter((p) => p.ProductName === "Apple");
   return (
     <>
       <div>
         <h1 style={{ textAlign: "center" }}>APPLE PHONES</h1>
 
-        <div className="card-div">
+        <div className="Apple-row">
           {pd.length > 0 ? (
             pd.map((post) => (
-              <div>
-                <div className="card">
+              <div key={post.key} className="Apple-column">
+                <div className="Apple-card">
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={() => handleClick(post.key)}
                   >
                     <div>
                       <img
-                        className="img"
+                        className="Apple-img"
                         src={post.ProductImg}
                         alt="Denim Jeans"
                       />
@@ -55,8 +56,14 @@ const Apple = () => {
                     <p>Model-{post.ProductModel}</p>
                     <p className="price">{post.ProductPrice} TK</p>
                   </div>
+
                   <p>
-                    <button>Add to Cart</button>
+                    <button
+                      style={{ cursor: "pointer" }}
+                      onClick={() => dispatch(addToCart({ ...post, qty: 1 }))}
+                    >
+                      Add to Cart
+                    </button>
                   </p>
                 </div>
               </div>

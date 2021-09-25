@@ -74,3 +74,45 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.add-cart-div {
+  border: 2px solid #012a4a;
+
+  padding: 10px;
+  margin-bottom: 5px;
+  height: 70px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.add-cart-remove-button {
+  background: none;
+  border: none;
+  float: right;
+  color: #f00;
+  cursor: pointer;
+}
+.add-cart-image {
+  height: 50px;
+  width: 30px;
+  float: left;
+}
+.total-price-div {
+  text-align: center;
+}
+.view-cart-checkout-button {
+  border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: #fff;
+
+  background-color: #012a4a;
+  padding: 5px;
+  cursor: pointer;
+}

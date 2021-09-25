@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { useParams } from "react-router";
 import { db } from "../../config/Config";
-import { detailsList } from "../../redux/action";
+import { detailsList, addToCart } from "../../redux/action";
 import "./ProductShow.css";
 import Footer from "../Footer/Footer.js";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -13,8 +13,9 @@ const ProductShow = () => {
   const { key } = useParams();
 
   const dispatch = useDispatch();
-  const detailsStore = useSelector((state) => state);
-  console.log(detailsStore.DetailsList);
+  const Store = useSelector((state) => state.DetailsList);
+
+  console.log(Store);
 
   useEffect(() => {
     db.collection("Products")
@@ -22,7 +23,9 @@ const ProductShow = () => {
       .get()
       .then((sanapshot) => {
         if (sanapshot) {
-          dispatch(detailsList(sanapshot.data()));
+          // ge.push({ ...sanapshot.data(), qty: 1 });
+
+          dispatch(detailsList({ ...sanapshot.data(), key: key }));
         }
       });
   }, []);
@@ -31,7 +34,7 @@ const ProductShow = () => {
     <>
       <div id="container">
         <div class="product-details">
-          <h1>{detailsStore.DetailsList.ProductName} </h1>
+          <h1>{Store.ProductName} </h1>
 
           <p class="information">
             “Mobile phones ... they're not for communicating, they're for
@@ -40,28 +43,30 @@ const ProductShow = () => {
 
           <div class="control">
             <button class="btn">
-              <span class="price">
-                {" "}
-                {detailsStore.DetailsList.ProductPrice}TK{" "}
-              </span>
+              <span class="price">{Store.ProductPrice} TK </span>
 
               <span class="shopping-cart">
                 <AddShoppingCartIcon></AddShoppingCartIcon>
               </span>
 
-              <span class="buy">ADD CART</span>
+              <span
+                class="buy"
+                onClick={() => dispatch(addToCart({ ...Store, qty: 1 }))}
+              >
+                ADD CART
+              </span>
             </button>
           </div>
         </div>
 
         <div class="product-image">
-          <img src={detailsStore.DetailsList.ProductImg} alt="Omar Dsoky" />
+          <img src={Store.ProductImg} alt="Omar Dsoky" />
 
           <div class="info">
             <h2>The Description</h2>
             <ul>
               <li>
-                <strong>MODEL:{detailsStore.DetailsList.ProductModel} </strong>
+                <strong>MODEL:{Store.ProductModel} </strong>
               </li>
               <li>
                 <strong>RAM: </strong>6GB

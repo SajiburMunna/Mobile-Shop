@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { db } from "../../../../config/Config";
-import { productList } from "../../../../redux/action";
+import { productList, addToCart } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../Footer/Footer";
 import { useHistory } from "react-router";
+import "../Samsung/Samsung.css";
 
 const Samsung = () => {
   let history = useHistory();
@@ -34,29 +35,34 @@ const Samsung = () => {
       <div>
         <h1 style={{ textAlign: "center" }}>SAMSUNG PHONES</h1>
 
-        <div className="card-div">
+        <div className="Samsung-row">
           {pd.length > 0 ? (
             pd.map((post) => (
-              <div>
-                <div className="card">
+              <div key={post.key} className="Samsung-column">
+                <div className="Samsung-card">
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={() => handleClick(post.key)}
                   >
                     <div>
                       <img
-                        className="img"
+                        className="Samsung-img"
                         src={post.ProductImg}
                         alt="Denim Jeans"
                       />
                     </div>
 
-                    <h3 style={{ marginTop: "5px" }}>{post.ProductName}</h3>
+                    <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
                     <p>Model-{post.ProductModel}</p>
                     <p className="price">{post.ProductPrice} TK</p>
                   </div>
                   <p>
-                    <button>Add to Cart</button>
+                    <button
+                      style={{ cursor: "pointer" }}
+                      onClick={() => dispatch(addToCart({ ...post, qty: 1 }))}
+                    >
+                      Add to Cart
+                    </button>
                   </p>
                 </div>
               </div>

@@ -38,44 +38,48 @@ export const Product = () => {
     <>
       <h1 style={{ textAlign: "center" }}>New Arival</h1>
 
-      <div className="card-div">
+      <div class="row">
         {reduxStore.List.length > 0 ? (
-          reduxStore.List.slice(0, 10).map((post) => (
-            <div className="card">
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => handleClick(post.key)}
-              >
-                <div>
-                  <span
-                    style={{
-                      zIndex: 1,
-                      backgroundColor: "#000000",
-                      color: "red",
-                      padding: "10px",
-                      borderRadius: "20px",
-                    }}
-                  >
-                    20%
-                  </span>
+          reduxStore.List.slice(0, 12).map((post) => (
+            <div class="column">
+              <div className="card">
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleClick(post.key)}
+                >
+                  <div>
+                    <span
+                      style={{
+                        zIndex: 1,
+                        backgroundColor: "#000000",
+                        color: "red",
+                        padding: "10px",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      20%
+                    </span>
 
-                  <img
-                    className="img"
-                    src={post.ProductImg}
-                    alt="Denim Jeans"
-                  />
+                    <img
+                      className="img"
+                      src={post.ProductImg}
+                      alt="Denim Jeans"
+                    />
+                  </div>
+
+                  <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
+                  <p>Model-{post.ProductModel}</p>
+                  <p className="price">{post.ProductPrice} TK</p>
                 </div>
-
-                <h4 style={{ marginTop: "5px" }}>{post.ProductName}</h4>
-                <p>Model-{post.ProductModel}</p>
-                <p className="price">{post.ProductPrice} TK</p>
-              </div>
-              <div>
-                <p>
-                  <button onClick={() => dispatch(addToCart(post))}>
-                    Add to Cart
-                  </button>
-                </p>
+                <div>
+                  <p>
+                    <button
+                      onClick={() => dispatch(addToCart({ ...post, qty: 1 }))}
+                    >
+                      Add to Cart
+                    </button>
+                  </p>
+                </div>
               </div>
             </div>
           ))

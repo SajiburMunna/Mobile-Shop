@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { db } from "../../../config/Config";
-import { productList } from "../../../redux/action.js";
+import { productList, addToCart } from "../../../redux/action.js";
 import { useDispatch, useSelector } from "react-redux";
 import BlackSaleDay from "../../../Images/BlackSaleDay.png";
 import "./Shop.css";
@@ -23,7 +23,7 @@ const Shop = () => {
     {
       id: 12,
       name: "Apple",
-      value: "apple",
+      value: "Apple",
     },
     {
       id: 13,
@@ -94,7 +94,7 @@ const Shop = () => {
   return (
     <>
       <div className="flex-div">
-        <div className="filter-div">
+        <div className="brand-div">
           <h2>BRANDS</h2>
           <form>
             <label htmlFor="myInput">All</label>
@@ -122,23 +122,19 @@ const Shop = () => {
 
         <div>
           <div>
-            <img
-              style={{ width: "930px", height: "300px", marginRight: "100px" }}
-              src={BlackSaleDay}
-              alt=""
-            />
+            <img className="BlackSaleDay-img " src={BlackSaleDay} alt="" />
           </div>
-          <div className="shopcard-div">
+          <div className="Shop-row">
             {filteredList.map((post) => (
-              <div>
-                <div className="shopcard">
+              <div className="Shop-column">
+                <div className="Shop-card">
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={() => handleClick(post.key)}
                   >
                     <div>
                       <img
-                        className="shopimg"
+                        className="Shop-img"
                         src={post.ProductImg}
                         alt="Denim Jeans"
                       />
@@ -149,7 +145,11 @@ const Shop = () => {
                     <p className="shopprice">{post.ProductPrice} TK</p>
                   </div>
                   <p>
-                    <button>Add to Cart</button>
+                    <button
+                      onClick={() => dispatch(addToCart({ ...post, qty: 1 }))}
+                    >
+                      Add to Cart
+                    </button>
                   </p>
                 </div>
               </div>

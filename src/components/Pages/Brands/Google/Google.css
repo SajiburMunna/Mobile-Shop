@@ -1,31 +1,21 @@
-.brand-div {
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px;
-  height: 200px;
-}
-.flex-div {
-  display: flex;
-}
-
 * {
   box-sizing: border-box;
 }
 
 /* Float four columns side by side */
-.Shop-column {
+.Google-column {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
-.Shop-row {
+.Google-row {
   margin: 0 -5px;
 }
 
 /* Clear floats after the columns */
-.Shop-row:after {
+.Google-row:after {
   content: "";
   display: table;
   clear: both;
@@ -33,7 +23,7 @@
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
-  .Shop-column {
+  .Google-column {
     width: 100%;
     display: block;
     margin-bottom: 20px;
@@ -41,7 +31,7 @@
 }
 
 /* Style the counter cards */
-.Shop-card {
+.Google-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
@@ -54,11 +44,7 @@
   -o-border-radius: 10px;
 }
 
-.Shop-img {
+.Google-img {
   height: 200px;
   width: 200px;
-}
-.BlackSaleDay-img {
-  height: 300px;
-  width: 100%;
 }

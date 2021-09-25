@@ -15,6 +15,9 @@ import Samsung from "../src/components/Pages/Brands/Samsung/Samsung";
 import Apple from "../src/components/Pages/Brands/Apple/Apple.js";
 import Xiaomi from "../src/components/Pages/Brands/Xiaomi/Xiaomi.js";
 import Google from "../src/components/Pages/Brands/Google/Google.js";
+import Cart from "./components/Pages/Cart/Cart";
+import CheckoutForm from "./components/Pages/CheckoutForm/CheckoutForm";
+import SearchProduct from "./components/Pages/SearchProduct/SearchProduct";
 
 const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
   useLayoutEffect(() => {
@@ -34,13 +37,19 @@ const App = () => {
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/shop" component={Shop}></Route>
             <Route path="/productshow/:key" component={ProductShow}></Route>
-
             <Route exact path="/addproduct" component={Addproduct}></Route>
             <Route exact path="/productshow" component={ProductShow}></Route>
             <Route exact path="/samsung" component={Samsung}></Route>
             <Route exact path="/apple" component={Apple}></Route>
             <Route exact path="/xiaomi" component={Xiaomi}></Route>
             <Route exact path="/google" component={Google}></Route>
+            <Route exact path="/cart" component={Cart}></Route>
+            <Route exact path="/checkout" component={CheckoutForm}></Route>
+            <Route
+              exact
+              path="/searchproduct"
+              component={SearchProduct}
+            ></Route>
           </Switch>
         </ScrollToTop>
       </Router>

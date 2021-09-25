@@ -1,16 +1,42 @@
-.card-div {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 296px;
-  height: 350px;
-  margin: 3px;
+  padding: 16px;
   text-align: center;
-  font-family: arial;
-  background-color: rgb(236, 236, 224);
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -18,29 +44,7 @@
   -o-border-radius: 10px;
 }
 
-.price {
-  color: grey;
-  font-size: 20px;
-}
-
-.card button {
-  border: none;
-  outline: 0;
-
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 20px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
-
 .img {
-  margin-top: 20px;
-  width: 150px;
-  height: 150px;
+  height: 200px;
+  width: 200px;
 }

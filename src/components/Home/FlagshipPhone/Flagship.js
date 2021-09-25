@@ -7,10 +7,6 @@ const Flagship = () => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>FLAGSHIP</h1>
-      <h3>
-        {" "}
-        <hr style={{ marginLeft: "550px" }} />
-      </h3>
 
       <div className="display">
         <div class="container">

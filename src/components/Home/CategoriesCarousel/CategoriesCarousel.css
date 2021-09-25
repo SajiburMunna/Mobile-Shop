@@ -6,54 +6,44 @@ hr {
   border-radius: 5px;
   margin-bottom: 50px;
 }
-
-.phone {
-  display: flex;
+.Column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
 }
 
-.container1 {
-  position: relative;
-  width: 300px;
-  height: 100px;
-  margin-bottom: 50px;
+/* Remove extra left and right margins, due to padding */
+.Row {
+  margin: 0 -5px;
 }
 
-.image1 {
-  opacity: 1;
-  display: block;
-  width: 300px;
-  height: 100px;
-  margin-right: 10px;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
+/* Clear floats after the columns */
+.Row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.middle1 {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .Column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
 
-  top: 100px;
-  left: 150px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+/* Style the counter cards */
+.Card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
   text-align: center;
-}
-
-.container1:hover .image1 {
-  opacity: 0.3;
-  background-color: #f1a8f3;
-}
-
-.container1:hover .middle1 {
-  opacity: 1;
-}
-
-.text1 {
-  background-color: #d6e0ed;
-  color: black;
-  font-size: 16px;
-  padding: 16px 32px;
+  background-color: beige;
+  margin-bottom: 10px;
   cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }

@@ -22,38 +22,31 @@ const CategoriesCarousel = () => {
 
   return (
     <div>
-      <div>
-        <h1>
-          BRANDS <hr className="h1" />
-        </h1>
-        <div className="phone">
-          {phone.map((p) => (
-            <div className="boder">
-              <div className="container1">
-                <img
-                  style={{
-                    height: "200px",
-                  }}
-                  className="image1"
-                  src={p.img}
-                  alt=""
-                />
-                <div class="middle1">
-                  <div
-                    className="text1"
-                    onClick={() => {
-                      Click(p.id);
-                    }}
-                  >
-                    SHOP
-                  </div>
-                </div>
-              </div>
+      <h1>
+        BRANDS <hr className="h1" />
+      </h1>
+      <div class="Row">
+        {phone.map((p) => (
+          <div class="Column">
+            <div
+              class="Card"
+              onClick={() => {
+                Click(p.id);
+              }}
+            >
+              <img
+                style={{
+                  width: "270px",
+                  height: "200px",
+                }}
+                className="image1"
+                src={p.img}
+                alt=""
+              />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-      <div></div>
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.full-cart-div {
+  display: flex;
+}
+.cart-div {
+  width: 50%;
+}
+.border-div {
+  border: 1px solid wheat;
+  margin: 10px;
+  width: 50%;
+}
+.product-div-img {
+  display: flex;
+}
+.img {
+  height: 100px;
+  width: 100px;
+}
+.quantity-button {
+  display: flex;
+}
+.product-info-div {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.proceed {
+  text-align: center;
+}

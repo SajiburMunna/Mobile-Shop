@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { db } from "../../../../config/Config";
-import { productList } from "../../../../redux/action";
+import { productList, addToCart } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../Footer/Footer";
 import { useHistory } from "react-router";
+import "../Xiaomi/Xiaomi.css";
 
 const Xiaomi = () => {
   let history = useHistory();
@@ -34,18 +35,18 @@ const Xiaomi = () => {
       <div>
         <h1 style={{ textAlign: "center" }}>XIAOMI PHONES</h1>
 
-        <div className="card-div">
+        <div className="Xiaomi-row">
           {pd.length > 0 ? (
             pd.map((post) => (
-              <div>
-                <div className="card">
+              <div key={post.key} className="Xiaomi-column">
+                <div className="Xiaomi-card">
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={() => handleClick(post.key)}
                   >
                     <div>
                       <img
-                        className="img"
+                        className="Xiaomi-img"
                         src={post.ProductImg}
                         alt="Denim Jeans"
                       />
@@ -56,7 +57,12 @@ const Xiaomi = () => {
                     <p className="price">{post.ProductPrice} TK</p>
                   </div>
                   <p>
-                    <button>Add to Cart</button>
+                    <button
+                      style={{ cursor: "pointer" }}
+                      onClick={() => dispatch(addToCart({ ...post, qty: 1 }))}
+                    >
+                      Add to Cart
+                    </button>
                   </p>
                 </div>
               </div>
