@@ -1,24 +1,31 @@
 .div-flex {
   display: flex;
-  height: 550px;
+  height: 500px;
 }
 
 .divlft-img {
-  height: 600px;
+  height: 500px;
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: -1;
 }
 .div-img {
-  margin-left: 250px;
-  height: 600px;
+  height: 500px;
+  margin-left: 200px;
 
   left: 0px;
   top: 0px;
   z-index: -1;
 }
 .button-div {
-  padding: 100px;
+  margin-left: 100px;
   font-size: 25px;
+}
+.header-button {
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  background-color: white;
 }

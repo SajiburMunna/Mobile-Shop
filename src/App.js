@@ -18,6 +18,9 @@ import Google from "../src/components/Pages/Brands/Google/Google.js";
 import Cart from "./components/Pages/Cart/Cart";
 import CheckoutForm from "./components/Pages/CheckoutForm/CheckoutForm";
 import SearchProduct from "./components/Pages/SearchProduct/SearchProduct";
+import SignUpPage from "./components/Login/SignUpPage";
+import SignInPage from "./components/Login/SignInPage";
+import { Product } from "./components/Product/Product";
 
 const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
   useLayoutEffect(() => {
@@ -32,7 +35,10 @@ const App = () => {
     <div>
       <Router>
         <ScrollToTop>
-          <Navbar></Navbar>
+          <div style={{ marginBottom: "30px" }}>
+            <Navbar></Navbar>
+          </div>
+
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/shop" component={Shop}></Route>
@@ -50,6 +56,9 @@ const App = () => {
               path="/searchproduct"
               component={SearchProduct}
             ></Route>
+            <Route exact path="/signuppage" component={SignUpPage}></Route>
+            <Route exact path="/signinpage" component={SignInPage}></Route>
+            <Route exact path="/newarival" component={Product}></Route>
           </Switch>
         </ScrollToTop>
       </Router>

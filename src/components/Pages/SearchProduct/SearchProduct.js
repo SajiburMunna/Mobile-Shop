@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addToCart } from "../../../redux/action";
+import Footer from "../../Footer/Footer.js";
 
 const SearchProduct = () => {
   const history = useHistory();
@@ -15,13 +16,17 @@ const SearchProduct = () => {
 
   return (
     <>
-      <h1>Your Search Products "{SearchData}"</h1>
+      {SearchData !== "" ? (
+        <h1>Your Search Products "{SearchData}"</h1>
+      ) : (
+        <h1>Your Search Products "No Available"</h1>
+      )}
+
       <div class="row">
         {Product.length > 0 ? (
           // eslint-disable-next-line array-callback-return
           Product.filter((pd) => {
             if (SearchData === "") {
-              return pd;
             } else if (
               pd.ProductName.toLowerCase().includes(SearchData.toLowerCase())
             ) {
@@ -62,6 +67,8 @@ const SearchProduct = () => {
           <h1>No products Available:(</h1>
         )}
       </div>
+
+      <Footer></Footer>
     </>
   );
 };

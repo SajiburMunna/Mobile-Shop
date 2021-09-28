@@ -105,7 +105,7 @@ export const Navbar = () => {
             textAlign: "center",
             cursor: "pointer",
           }}
-          onClick={() => goTo("/cart")}
+          onClick={() => history.push("/cart")}
         >
           View Cart
         </p>
@@ -125,8 +125,7 @@ export const Navbar = () => {
 
         <div class="dropdown">
           <button class="dropbtn">
-            BRANDS
-            <i class="fa fa-caret-down"></i>
+            <span style={{ fontWeight: "bold" }}>BRANDS</span>{" "}
           </button>
           <div class="dropdown-content">
             <Link to="/samsung">Samsung</Link>
@@ -135,29 +134,50 @@ export const Navbar = () => {
             <Link to="/google">Google</Link>
           </div>
         </div>
+        <Link className="nav" to="/shop">
+          FLAGSHIP
+        </Link>
 
         <div style={{ display: "flex" }}>
-          <input
-            style={{ height: "30px", marginTop: "10px", border: "none" }}
-            type="text"
-            value={searchData}
-            onChange={(evant) => setSearchData(evant.target.value)}
-            placeholder="seaching"
-          />
-          <button
-            onClick={() =>
-              dispatch(searchProduct(searchData), goTo("/searchproduct"))
-            }
-            style={{
-              height: "30px",
-              marginTop: "10px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Search
-          </button>
-          <div>
+          <div style={{}}>
+            <input
+              style={{
+                height: "30px",
+                marginTop: "10px",
+                border: "none",
+                textAlign: "center",
+                borderRadius: "10px",
+                marginLeft: "400px",
+              }}
+              type="text"
+              value={searchData}
+              onChange={(evant) => setSearchData(evant.target.value)}
+              placeholder="By ProductName"
+            />
+            {searchData ? (
+              <button
+                onClick={() =>
+                  dispatch(
+                    searchProduct(searchData),
+                    goTo("/searchproduct"),
+                    setSearchData("")
+                  )
+                }
+                style={{
+                  height: "30px",
+                  marginTop: "10px",
+                  border: "none",
+                  cursor: "pointer",
+                  marginLeft: "10px",
+                  backgroundColor: "white",
+                }}
+              >
+                Search
+              </button>
+            ) : null}
+          </div>
+
+          <div style={{ marginLeft: "70px" }}>
             <React.Fragment key={"right"}>
               <div
                 onClick={toggleDrawer("right", true)}
@@ -181,7 +201,7 @@ export const Navbar = () => {
             </React.Fragment>
           </div>
 
-          <Link style={{ background: "none" }} to="/login">
+          <Link style={{ background: "none" }} to="/signinpage">
             <LoginIcon style={{ color: "black" }}> </LoginIcon>
           </Link>
         </div>

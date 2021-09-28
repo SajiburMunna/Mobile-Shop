@@ -3,6 +3,10 @@ const initialState = {
   DetailsList: [],
   CartItems: [],
   SearchData: "",
+
+  loading: false,
+  currentUser: null,
+  error: null,
 };
 
 const productListReducer = (state = initialState, action) => {
@@ -82,6 +86,24 @@ const productListReducer = (state = initialState, action) => {
         SearchData: action.payload,
       };
     }
+    case "SIGN_UP_START":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "SIGN_UP_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        currentUser: action.payload,
+      };
+    case "SIGN_UP_FAIL":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     default:
       return state;
   }

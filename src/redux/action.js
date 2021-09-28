@@ -1,3 +1,4 @@
+import { auth } from "../config/Config";
 export const productList = (productList) => {
   return {
     type: "PRODUCT_LIST",
@@ -47,5 +48,32 @@ export const searchProduct = (value) => {
   return {
     type: "SEARCH_PRODUCT",
     payload: value,
+  };
+};
+
+export const signUpStart = () => ({
+  type: "SIGN_UP_START",
+});
+export const signUpSuccess = (user) => ({
+  type: "SIGN_UP_SUCCESS",
+  payload: user,
+});
+export const signUpFail = (error) => ({
+  type: "SIGN_UP_FAIL",
+  payload: error,
+});
+
+export const signUpInitiate = (email, password, displayName) => {
+  return function (dispatch) {
+    dispatch(signUpStart);
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        user.updateProfile({
+          displayName,
+        });
+        dispatch(signUpSuccess(user));
+      })
+      .catch((error) => dispatch(signUpFail(error)));
   };
 };

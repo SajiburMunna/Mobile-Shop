@@ -97,23 +97,23 @@ const Shop = () => {
         <div className="brand-div">
           <h2>BRANDS</h2>
           <form>
-            <label htmlFor="myInput">All</label>
             <input
               id="myInput"
               type="checkbox"
               onClick={() => onFilterChange("ALL")}
               checked={activeFilter.length === filterList.length}
             />
+            <label htmlFor="myInput">All</label>
             <br />
             {filterList.map((filter) => (
               <React.Fragment>
-                <label htmlFor={filter.id}>{filter.name}</label>
                 <input
                   id={filter.id}
                   type="checkbox"
                   checked={activeFilter.includes(filter.value)}
                   onClick={() => onFilterChange(filter.value)}
                 />
+                <label htmlFor={filter.id}>{filter.name}</label>
                 <br />
               </React.Fragment>
             ))}

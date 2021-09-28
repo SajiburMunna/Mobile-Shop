@@ -1,5 +1,6 @@
 import { createStore } from "redux";
 import productListReducer from "./reducer";
+
 import { composeWithDevTools } from "redux-devtools-extension";
 
 function saveToLocalStorage(state) {
@@ -26,6 +27,7 @@ function loadFromLocalStorage() {
 
 export const store = createStore(
   productListReducer,
+
   loadFromLocalStorage(),
   composeWithDevTools()
 );

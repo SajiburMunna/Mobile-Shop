@@ -15,9 +15,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   console.log(cart);
   const history = useHistory();
-  const goCheckOut = () => {
-    history.push("/checkout");
-  };
 
   const [totalQty, setTotalQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -33,6 +30,7 @@ const Cart = () => {
     setTotalQty(item);
     setTotalPrice(price);
   }, [cart, totalPrice, totalQty]);
+
   return (
     <>
       <div className="full-cart-div">
@@ -91,7 +89,9 @@ const Cart = () => {
               <br />
               <small>Total Price :{totalPrice}TK</small>
               <br />
-              <button onClick={() => goCheckOut()}>Proceed Oder</button>
+              <button onClick={() => history.push("/checkout")}>
+                Proceed Oder
+              </button>
               <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
             </fieldset>
           </form>

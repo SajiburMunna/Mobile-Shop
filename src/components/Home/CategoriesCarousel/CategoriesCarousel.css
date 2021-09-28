@@ -38,7 +38,7 @@ hr {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: beige;
+  background-color: rgb(255, 255, 255);
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 10px;
